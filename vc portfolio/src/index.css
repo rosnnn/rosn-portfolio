@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #050511;
+  color: #fff4e6;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M2 2 L2 20 L8 16 L11 24 L14 23 L11 15 L20 15 Z' fill='%23ff2d95' stroke='%2300e5ff' stroke-width='1.5'/></svg>") 2 2, auto;
+}
+
+a, button {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><circle cx='16' cy='16' r='10' fill='none' stroke='%2300e5ff' stroke-width='2'/><circle cx='16' cy='16' r='2' fill='%23ff2d95'/></svg>") 16 16, pointer;
+}
+
+/* === Vice City sunset gradient sky === */
+.vice-sky {
+  background: linear-gradient(180deg,
+    #2d1b69 0%,
+    #7b2ff7 18%,
+    #ff2d95 45%,
+    #ff6b35 68%,
+    #ffb703 85%,
+    #1de9b6 100%);
+}
+
+.vice-grid {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.10) 1px, transparent 1px);
+  background-size: 56px 56px;
+  transform: perspective(400px) rotateX(60deg);
+  transform-origin: center top;
+}
+
+/* === Neon text === */
+.neon-pink {
+  color: #fff4e6;
+  text-shadow:
+    0 0 4px #ff2d95,
+    0 0 12px #ff2d95,
+    0 0 30px #ff2d95,
+    0 0 60px rgba(255, 45, 149, 0.6);
+}
+.neon-cyan {
+  color: #eaffff;
+  text-shadow:
+    0 0 4px #00e5ff,
+    0 0 12px #00e5ff,
+    0 0 30px #00e5ff,
+    0 0 60px rgba(0, 229, 255, 0.6);
+}
+.neon-sun {
+  color: #fff4e6;
+  text-shadow:
+    0 0 4px #ffb703,
+    0 0 12px #ff6b35,
+    0 0 30px #ffb703;
+}
+
+.text-stroke-dark {
+  -webkit-text-stroke: 2px #050511;
+  paint-order: stroke fill;
+}
+
+/* === Scanlines overlay (subtle) === */
+.scanlines::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.04) 0px,
+    rgba(0, 0, 0, 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* === VHS vignette (very subtle) === */
+.vhs::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.35) 100%);
+  z-index: 9998;
+}
+
+/* === Wanted star === */
+.star-active {
+  color: #ffb703;
+  text-shadow: 0 0 8px #ffb703, 0 0 18px #ff6b35;
+}
+.star-inactive {
+  color: #2a2a3a;
+}
+
+/* === HUD panel === */
+.hud-panel {
+  background: linear-gradient(135deg, rgba(10,10,26,0.85), rgba(5,5,17,0.95));
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* === Glitch === */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+.glitch:hover {
+  animation: glitch 0.3s linear infinite;
+}
+
+/* === Sun rays === */
+.sun-rays {
+  background: conic-gradient(
+    from 0deg,
+    rgba(255,183,3,0.0) 0deg,
+    rgba(255,183,3,0.25) 10deg,
+    rgba(255,183,3,0.0) 20deg,
+    rgba(255,183,3,0.25) 30deg,
+    rgba(255,183,3,0.0) 40deg,
+    rgba(255,183,3,0.25) 50deg,
+    rgba(255,183,3,0.0) 60deg
+  );
+}
+
+/* === Palm tree silhouette via clip === */
+.palm-shadow {
+  filter: drop-shadow(0 0 20px rgba(255, 45, 149, 0.4));
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050511;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff2d95, #00e5ff);
+  border-radius: 0;
+}
+
+/* === Section heading underline === */
+.section-rule {
+  height: 4px;
+  background: linear-gradient(90deg, #ff2d95, #00e5ff, transparent);
+}
+
+/* === Card hover === */
+.heist-card {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+}
+.heist-card:hover {
+  transform: translateY(-8px) rotate(-0.5deg);
+  box-shadow: 0 20px 60px rgba(255, 45, 149, 0.35);
+}
+
+/* === Marquee === */
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* === Stat bar fill === */
+.stat-fill {
+  background: linear-gradient(90deg, #ff2d95, #ffb703);
+  box-shadow: 0 0 10px rgba(255, 45, 149, 0.6);
+}
+
+/* === Form inputs === */
+.vice-input {
+  width: 100%;
+  background: rgba(5, 5, 17, 0.8);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: #fff4e6;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.vice-input::placeholder {
+  color: rgba(255, 244, 230, 0.35);
+}
+.vice-input:focus {
+  border-color: #ff2d95;
+  box-shadow: 0 0 0 1px #ff2d95, 0 0 12px rgba(255, 45, 149, 0.4);
+}
