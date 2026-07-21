@@ -538,3 +538,31 @@
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.22), inset 0 0 10px rgba(255, 255, 255, 0.12) !important;
   transform: translateY(-1px) scale(1.04);
 }
+
+/* Ambient Snowfall Background Effect */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(105vh) translateX(30px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  top: -5%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(220, 240, 255, 0.6) 60%, transparent 100%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(186, 230, 253, 0.5);
+  pointer-events: none;
+  animation: snowfall linear infinite;
+}
