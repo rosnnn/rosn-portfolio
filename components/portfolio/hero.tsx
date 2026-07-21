@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { ArrowUpRight, MapPin, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Building2, FileText, MapPin, Sparkles } from 'lucide-react'
 import Image from 'next/image'
-import { GithubIcon, LinkedinIcon } from './brand-icons'
+import { GithubIcon, LinkedinIcon, HackerRankIcon } from './brand-icons'
 import { profile } from './data'
 import myImg from '../assets/my_img.jpeg'
 
@@ -48,14 +48,23 @@ export function Hero({ isLoaded = true }: HeroProps) {
 
       <div className="relative z-10 w-full space-y-5 md:space-y-6">
 
-      <div className="vice-surface animate-[fade-up_0.8s_ease-out] mt-1 flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-sm md:mt-2">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
-        </span>
-        <span className="text-muted-foreground">
-          Open to full-time SWE roles
-        </span>
+      <div className="flex flex-wrap items-center gap-2.5 mt-1 md:mt-2">
+        <div className="vice-surface animate-[fade-up_0.8s_ease-out] flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-sm">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
+          </span>
+          <span className="text-muted-foreground">
+            Open to full-time SWE roles
+          </span>
+        </div>
+
+        <div className="vice-surface animate-[fade-up_0.8s_ease-out] flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 text-xs border border-secondary/30">
+          <Building2 className="h-3.5 w-3.5 text-secondary" />
+          <span className="text-foreground font-medium">
+            Virtual Internships: <span className="text-secondary font-semibold">JPMorgan Chase & Co.</span> · <span className="text-primary font-semibold">Walmart Global Tech</span>
+          </span>
+        </div>
       </div>
 
       <div className="grid items-center gap-7 md:grid-cols-[1.3fr_1fr] md:gap-10">
@@ -80,6 +89,15 @@ export function Hero({ isLoaded = true }: HeroProps) {
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="vice-surface group flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground transition-transform hover:-translate-y-0.5"
+            >
+              <FileText className="h-4 w-4 text-secondary" />
+              Download CV
+            </a>
+            <a
               href={profile.github}
               target="_blank"
               rel="noreferrer"
@@ -96,6 +114,16 @@ export function Hero({ isLoaded = true }: HeroProps) {
               aria-label="LinkedIn"
             >
               <LinkedinIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={profile.hackerrank}
+              target="_blank"
+              rel="noreferrer"
+              className="vice-surface flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5"
+              aria-label="HackerRank"
+              title="HackerRank 5-Star Python Coder"
+            >
+              <HackerRankIcon className="h-5 w-5 text-emerald-400" />
             </a>
           </div>
 

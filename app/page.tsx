@@ -9,7 +9,9 @@ import { MarqueeStrip } from '@/components/portfolio/marquee-strip'
 import { About } from '@/components/portfolio/about'
 import { Skills } from '@/components/portfolio/skills'
 import { Experience } from '@/components/portfolio/experience'
+import { VirtualExperience } from '@/components/portfolio/virtual-experience'
 import { Projects } from '@/components/portfolio/projects'
+import { Credentials } from '@/components/portfolio/credentials'
 import { Contact } from '@/components/portfolio/contact'
 import { Footer } from '@/components/portfolio/footer'
 
@@ -27,7 +29,9 @@ export default function Page() {
         <About />
         <Skills />
         <Experience />
+        <VirtualExperience />
         <Projects />
+        <Credentials />
         <Contact />
         <Footer />
       </div>

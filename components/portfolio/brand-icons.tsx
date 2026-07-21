@@ -25,3 +25,16 @@ export function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+
+export function HackerRankIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.733 16.924h-1.503v-4.041H8.761v4.041H7.258V7.076h1.503v4.301h3.469V7.076h1.503v9.848zm3.009 0h-1.503v-9.848h1.503v9.848z" />
+    </svg>
+  )
+}

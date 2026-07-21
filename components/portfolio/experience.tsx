@@ -1,4 +1,4 @@
-import { Briefcase } from 'lucide-react'
+import { Briefcase, FileCheck, ShieldCheck } from 'lucide-react'
 import { experience } from './data'
 import { Reveal } from './reveal'
 
@@ -33,9 +33,27 @@ export function Experience() {
                     <p className="text-sm text-secondary">{job.company}</p>
                   </div>
                 </div>
-                <span className="vice-chip w-fit rounded-full px-3 py-1 text-xs">
-                  {job.period}
-                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  {job.proofUrl && (
+                    <a
+                      href={job.proofUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="vice-surface flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/30 transition-transform hover:-translate-y-0.5"
+                    >
+                      <ShieldCheck className="h-3.5 w-3.5" />
+                      Verified Proof
+                    </a>
+                  )}
+                  {job.pendingProof && (
+                    <span className="vice-chip rounded-full px-3 py-1 text-xs text-muted-foreground">
+                      Proof Pending
+                    </span>
+                  )}
+                  <span className="vice-chip w-fit rounded-full px-3 py-1 text-xs">
+                    {job.period}
+                  </span>
+                </div>
               </div>
 
               <ul className="mt-5 space-y-2.5 md:pl-16">

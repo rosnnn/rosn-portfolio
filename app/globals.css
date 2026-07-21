@@ -363,8 +363,10 @@
   }
 }
 
-.animate-float-slow {
-  animation: float-slow 14s ease-in-out infinite;
+@media (min-width: 768px) {
+  .animate-float-slow {
+    animation: float-slow 14s ease-in-out infinite;
+  }
 }
 .animate-float-slower {
   animation: float-slower 18s ease-in-out infinite;
@@ -473,4 +475,66 @@
   .animate-marquee-left {
     animation-duration: 52s;
   }
+}
+
+/* Animated Conic Border Effect for Tech Stack Cards */
+.tech-card-glow {
+  position: relative;
+}
+
+.tech-card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    oklch(0.83 0.24 323 / 0.75),
+    oklch(0.76 0.2 286 / 0.55),
+    oklch(0.85 0.22 180 / 0.75),
+    oklch(0.83 0.24 323 / 0.75)
+  );
+  background-size: 300% 300%;
+  animation: border-wave 4s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  opacity: 0.55;
+  transition: opacity 0.4s ease;
+}
+
+.tech-card-glow:hover::before {
+  opacity: 1;
+}
+
+@keyframes border-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glass Rounded Border Hover for Navbar Links */
+.nav-link-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-glass:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.22), inset 0 0 10px rgba(255, 255, 255, 0.12) !important;
+  transform: translateY(-1px) scale(1.04);
 }

@@ -6,68 +6,112 @@ export const profile = {
   phone: '+91-6363493731',
   github: 'https://github.com/rosnnn',
   linkedin: 'https://linkedin.com/in/rosnnn',
+  hackerrank: 'https://www.hackerrank.com/profile/thevisinary1',
+  hackerrankBadge: '5★ Python Coder',
+  resume: '/pdf/CV.pdf',
   tagline:
-    'I build production-grade web, mobile, and AI/ML systems — from ERP platforms and REST APIs to LSTM forecasting pipelines and multi-agent tooling.',
+    'Full-stack software engineer (React, Flutter, Node.js, FastAPI, Python) shipping production ERPs, mobile apps, REST APIs, and ML pipelines. Published ML researcher & 5-Star HackerRank Coder.',
   summary:
-    'Full-stack software engineer with production experience across ERP systems, mobile apps, REST APIs, and AI/ML pipelines. Published ML researcher (JETIR, Dec 2025). I care about clean system design, reliable delivery through Agile and CI/CD, and shipping things people actually use.',
+    'Full-stack software engineer (React, Flutter, Node.js, FastAPI, Python) with hands-on experience shipping production ERP systems, mobile apps, REST APIs, and ML pipelines across three engineering roles and two competitive job simulations (JPMorgan Chase & Co., Walmart Global Tech). Published ML researcher (JETIR, Dec 2025) and 5-star Coder on HackerRank. Strong in system design, Agile delivery, and CI/CD.',
   stats: [
-    { label: 'Years building', value: '3+' },
-    { label: 'Projects shipped', value: '8+' },
+    { label: 'HackerRank', value: '5★ Python' },
+    { label: 'Work roles', value: '3' },
+    { label: 'Job simulations', value: '2' },
     { label: 'Published papers', value: '1' },
-    { label: 'ML accuracy', value: '92%' },
   ],
 }
 
 export const skillGroups = [
   {
     title: 'Languages',
-    items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'Dart', 'SQL', 'PL/SQL'],
+    items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'Dart', 'SQL'],
   },
   {
     title: 'Frontend / Mobile',
-    items: ['React', 'Next.js', 'Flutter', 'Capacitor', 'HTML5', 'CSS3'],
+    items: ['React', 'Next.js', 'Flutter', 'HTML5', 'CSS3'],
   },
   {
     title: 'Backend',
-    items: ['Node.js', 'FastAPI', 'Django', 'REST APIs', 'Celery', 'Microservices', 'Playwright'],
-  },
-  {
-    title: 'Databases & Cloud',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Oracle', 'AWS', 'Docker', 'Kubernetes'],
+    items: ['Node.js', 'FastAPI', 'Django', 'REST APIs', 'Celery', 'Microservices'],
   },
   {
     title: 'AI / ML',
-    items: ['PyTorch', 'scikit-learn', 'LSTM / GRU', 'OpenAI API', 'Anthropic API'],
+    items: ['PyTorch', 'scikit-learn', 'Pandas', 'NumPy', 'LSTM / GRU', 'LLM Integration'],
+  },
+  {
+    title: 'Data / Cloud',
+    items: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS (EC2, S3, Lambda)', 'Docker', 'Kubernetes'],
+  },
+  {
+    title: 'AI Dev Tools',
+    items: ['Cursor', 'Claude', 'GitHub Copilot', 'Antigravity'],
   },
   {
     title: 'Practices',
-    items: ['Agile / Scrum', 'CI/CD', 'Git', 'GitHub Actions', 'Testing', 'System Design'],
+    items: ['Agile / Scrum', 'CI/CD', 'Git', 'System Design', 'Unit / Integration Testing'],
   },
 ]
 
 export const experience = [
   {
-    role: 'Applied Machine Learning Intern',
-    company: 'Karunadu Technologies Pvt. Ltd.',
-    period: 'Feb 2026 – May 2026',
-    stack: ['Python', 'FastAPI', 'PyTorch', 'scikit-learn', 'CI/CD'],
+    role: 'Full Stack Engineer',
+    company: 'Zetheta Algorithms',
+    period: 'Jun 2026 – Jul 2026',
+    pendingProof: true,
+    stack: ['React 19', 'TypeScript', 'Node.js', 'Kafka', 'RabbitMQ', 'Redis', 'Terraform', 'OpenAPI', 'Cypress'],
     points: [
-      'Built a Python experiment-tracking system for dataset versioning, model configs, and run history — cutting manual tracking effort by ~60%.',
-      'Designed a modular batch + REST pipeline for training and evaluation with structured logging and deterministic job configs for fully reproducible iterations.',
-      'Wrote unit and integration tests for ML workflows and enforced lightweight performance benchmarks before each production handoff.',
-      'Collaborated in Agile sprints across code reviews, bug triage, and documentation alongside ML and software engineers.',
+      'Built LendSwift, an 8-step multi-step loan application form (React 19, React Hook Form, Zod) with encrypted auto-save, e-signature capture, and a 30+ case Cypress test suite.',
+      'Designed a 12-domain SAP S/4HANA-to-analytics integration architecture with a retry, circuit-breaker, and DLQ framework.',
+      'Authored a multi-region DR architecture for payment systems (active-active/active-passive designs, DNS failover, 12 disaster runbooks) and built an event-driven notification engine with compliance checks.',
     ],
   },
   {
-    role: 'Application Developer Apprentice',
-    company: 'VISABI Technologies Pvt. Ltd.',
-    period: 'Oct 2025 – Feb 2026',
-    stack: ['Flutter', 'Dart', 'React', 'PostgreSQL', 'REST APIs'],
+    role: 'Machine Learning Intern',
+    company: 'Karunadu Technologies Pvt. Ltd.',
+    period: 'Feb 2026 – May 2026',
+    proofUrl: '/pdf/Karundau.pdf',
+    stack: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Jupyter Notebook'],
     points: [
-      'Led the revamp of a production web ERP and shipped its Android companion app — modernizing inventory, operations, and reporting modules.',
-      'Built Flutter screens integrated with 10+ REST endpoints, reducing perceived load time by ~30% via optimized response mapping and client-side caching.',
-      'Improved error handling, input validation, and edge-case coverage across web and Android, reducing user-reported bugs by an estimated 40%.',
-      'Coordinated with the backend team on API contracts and iterative Agile feature releases.',
+      'Built a Movie Classification and Rating Prediction system and a Job Role Prediction model using supervised machine learning techniques.',
+      'Performed data preprocessing, feature engineering, model training, and evaluation, improving prediction accuracy through data cleaning and model optimization.',
+    ],
+  },
+  {
+    role: 'Software Development Intern',
+    company: 'Visabi Technologies Pvt. Ltd.',
+    period: 'Oct 2025 – Feb 2026',
+    pendingProof: true,
+    stack: ['Flutter', 'Dart', 'React', 'PostgreSQL', 'REST APIs', 'Android'],
+    points: [
+      'Built the sign-in/sign-up flow of the Android app in Flutter and extended development across the app\'s React-based screens; the app (vERP 2.0) is live on the Play Store.',
+      'Played a key role in re-architecting the web ERP from single-tenant to multi-tenant and led a substantial revamp of the web application, improving both structure and user experience.',
+    ],
+  },
+]
+
+export const virtualExperience = [
+  {
+    role: 'Software Engineering Job Simulation Participant',
+    company: 'JPMorgan Chase & Co.',
+    platform: 'Forage',
+    period: 'Jul 2026',
+    badge: '🏦 #1 US Bank · Fortune 50',
+    proofUrl: '/pdf/Software Engineering Job Simulation.pdf',
+    stack: ['Java', 'Python', 'Kafka', 'H2 Database', 'REST APIs'],
+    points: [
+      'Completed practical tasks in project setup, Kafka message stream integration, H2 database connection, REST API endpoint integration, and REST API controller design.',
+    ],
+  },
+  {
+    role: 'Advanced Software Engineering Job Simulation Participant',
+    company: 'Walmart Global Tech',
+    platform: 'Forage',
+    period: 'Jul 2026',
+    badge: '🏆 #1 Fortune 500 Company',
+    proofUrl: '/pdf/Advanced Software Engineering Job_walmart.pdf',
+    stack: ['Advanced Data Structures', 'Software Architecture', 'Relational DB', 'Data Munging'],
+    points: [
+      'Completed practical engineering tasks in advanced data structures, software architecture, relational database design, and data munging pipelines.',
     ],
   },
 ]
@@ -77,53 +121,122 @@ export const projects = [
     name: 'FinSight',
     subtitle: 'AI Personal Finance Platform',
     badge: 'Published · JETIR2512044',
+    paperUrl: '/pdf/JETIR_CERTIFICATE.pdf',
     stack: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'PyTorch', 'Solana'],
     points: [
-      'End-to-end ML pipeline ingesting PDF / CSV / Excel with LSTM/GRU forecasting at 92% / 90% accuracy on financial time-series data.',
-      'React + FastAPI dashboard with ML-based categorization and fiat + crypto tracking via Solana / Web3.js.',
-      'Awarded 2nd runner-up at the department exhibition.',
+      'React + FastAPI dashboard with LSTM/GRU forecasting (92%/90% accuracy) and Solana/Web3.js fiat + crypto tracking.',
+      'Awarded 2nd runner-up at the department exhibition. Published research paper in JETIR (Dec 2025).',
     ],
   },
   {
     name: 'Job OS',
     subtitle: 'Multi-Agent Job Acquisition Platform',
     badge: 'Multi-agent',
-    stack: ['FastAPI', 'PostgreSQL', 'Celery', 'Redis', 'Next.js', 'Playwright'],
+    stack: ['FastAPI', 'Next.js', 'PostgreSQL', 'Celery', 'Redis', 'Playwright'],
     points: [
-      '10+ agent pipeline handling job aggregation, deduplication, filtering, and resume-to-job matching with LLMs.',
-      'Playwright ATS automation with audit logs, plus a Next.js dashboard for approvals, Gmail tracking, and dry-run submission.',
-      'Celery + Redis orchestration for fault-tolerant, rate-limited task execution.',
-    ],
-  },
-  {
-    name: 'FlowStack',
-    subtitle: 'Automation & Integration Platform',
-    badge: 'Infra',
-    stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Webhooks'],
-    points: [
-      'Multi-tenant job runner with webhooks, idempotent task execution, and configurable rate limits.',
-      'Fault-tolerant retries and structured observability for production-grade reliability.',
+      '10+ agent pipeline for job aggregation, resume-to-job LLM matching, and Playwright-based ATS automation with a Next.js approval dashboard.',
     ],
   },
 ]
 
 export const education = {
   degree: 'B.E. in Computer Science',
-  school: 'Sri Krishna Institute of Technology, Bengaluru',
+  school: 'Sri Krishna Institute of Technology (VTU), Bengaluru',
   period: 'Aug 2022 – May 2026',
-  score: 'GPA 8.23 / 10.0 (82.32%)',
+  score: 'GPA 8.23 / 10.0',
 }
 
+export const academicProofs = [
+  {
+    title: 'Provisional Degree Certificate',
+    issuer: 'Sri Krishna Institute of Technology',
+    pdfUrl: '/pdf/Provisional_Degree_Certificate.pdf',
+    type: 'Official Degree',
+  },
+  {
+    title: 'Official Academic Transcript',
+    issuer: 'Sri Krishna Institute of Technology',
+    pdfUrl: '/pdf/Transcript.pdf',
+    type: 'Academic Marksheet',
+  },
+  {
+    title: 'Medium of Instruction (English)',
+    issuer: 'Sri Krishna Institute of Technology',
+    pdfUrl: '/pdf/Medium_Of_Instruction.pdf',
+    type: 'Language Verification',
+  },
+]
+
+export const jobSimulations = [
+  {
+    title: 'Software Engineering Job Simulation',
+    company: 'JPMorgan Chase & Co.',
+    platform: 'Forage (Jul 2026)',
+    pdfUrl: '/pdf/Software Engineering Job Simulation.pdf',
+    badge: 'Enterprise SWE',
+    skills: ['Project Setup', 'Kafka Integration', 'H2 Database', 'REST API Design & Controllers'],
+  },
+  {
+    title: 'Advanced Software Engineering Job Simulation',
+    company: 'Walmart Global Tech',
+    platform: 'Forage (Jul 2026)',
+    pdfUrl: '/pdf/Advanced Software Engineering Job_walmart.pdf',
+    badge: 'Advanced SWE',
+    skills: ['Advanced Data Structures', 'Software Architecture', 'Relational DB Design', 'Data Munging'],
+  },
+]
+
 export const certifications = [
-  { name: 'Crash Course on Python', issuer: 'Google · Coursera', date: 'Aug 2025' },
-  { name: 'Generative AI: Beyond the Chatbot', issuer: 'Google Cloud · Coursera', date: 'Aug 2025' },
-  { name: 'Introduction to Artificial Intelligence', issuer: 'IBM · Coursera', date: 'Aug 2025' },
+  {
+    name: 'Crash Course on Python',
+    issuer: 'Google · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Coursera_Crash Course on Python.pdf',
+  },
+  {
+    name: 'Foundations of Data Science',
+    issuer: 'Google · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Coursera_Foundations of Data Science.pdf',
+  },
+  {
+    name: 'Generative AI: Beyond the Chatbot',
+    issuer: 'Google Cloud · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Coursera_Gen AI Beyond the Chatbot.pdf',
+  },
+  {
+    name: 'Introduction to Artificial Intelligence',
+    issuer: 'IBM · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Coursera_IBM_AI.pdf',
+  },
+  {
+    name: 'Project Initiation: Starting a Successful Project',
+    issuer: 'Google · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Coursera_Project_Initiation_Starting_a_Successful.pdf',
+  },
+  {
+    name: 'Foundations of Project Management',
+    issuer: 'Google · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Coursera_Project_Management.pdf',
+  },
+  {
+    name: 'Foundations of Cybersecurity',
+    issuer: 'Google · Coursera',
+    date: 'Aug 2025',
+    pdfUrl: '/pdf/Foundation_of_Cyber_Security_Google - Copy.pdf',
+  },
 ]
 
 export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Virtual Exp', href: '#virtual-experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Credentials', href: '#credentials' },
   { label: 'Contact', href: '#contact' },
 ]

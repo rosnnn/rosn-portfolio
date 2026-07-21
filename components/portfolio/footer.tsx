@@ -1,5 +1,5 @@
 import { profile, navLinks } from './data'
-import { GithubIcon, LinkedinIcon } from './brand-icons'
+import { GithubIcon, LinkedinIcon, HackerRankIcon } from './brand-icons'
 import { Mail } from 'lucide-react'
 
 export function Footer() {
@@ -54,6 +54,16 @@ export function Footer() {
                 className="glass flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5"
               >
                 <LinkedinIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={profile.hackerrank}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="HackerRank"
+                title="HackerRank 5-Star Python Coder"
+                className="glass flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 text-emerald-400"
+              >
+                <HackerRankIcon className="h-5 w-5" />
               </a>
               <a
                 href={`mailto:${profile.email}`}

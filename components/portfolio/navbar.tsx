@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { navLinks } from './data'
+import { FileText, Menu, X } from 'lucide-react'
+import { navLinks, profile } from './data'
 import { cn } from '@/lib/utils'
 
 export function Navbar() {
@@ -43,7 +43,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+                className="nav-link-glass rounded-full px-3.5 py-1.5 text-sm text-muted-foreground"
               >
                 {link.label}
               </a>
@@ -52,6 +52,15 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="vice-surface hidden items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium text-foreground transition-transform hover:-translate-y-0.5 sm:flex"
+          >
+            <FileText className="h-3.5 w-3.5 text-secondary" />
+            CV
+          </a>
           <a
             href="#contact"
             className="vice-button hidden rounded-full px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5 sm:inline-block"

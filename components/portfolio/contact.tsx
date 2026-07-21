@@ -1,5 +1,5 @@
-import { Mail, Phone, ArrowUpRight } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './brand-icons'
+import { Mail, Phone, ArrowUpRight, FileText } from 'lucide-react'
+import { GithubIcon, LinkedinIcon, HackerRankIcon } from './brand-icons'
 import { profile } from './data'
 import { Reveal } from './reveal'
 
@@ -12,7 +12,7 @@ export function Contact() {
           <div className="animate-float-slower pointer-events-none absolute -bottom-10 -right-10 h-48 w-48 rounded-full bg-secondary/20 blur-3xl" />
 
           <p className="vice-kicker mb-2 font-mono text-xs uppercase tracking-[0.25em]">
-            05 — Contact
+            06 — Contact
           </p>
           <h2 className="vice-title mx-auto max-w-2xl text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
             Let&apos;s build something worth shipping.
@@ -30,6 +30,15 @@ export function Contact() {
               <Mail className="h-4 w-4" />
               {profile.email}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="vice-surface flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground transition-transform hover:-translate-y-0.5 border border-white/10"
+            >
+              <FileText className="h-4 w-4 text-secondary" />
+              Download CV (PDF)
             </a>
           </div>
 
@@ -58,6 +67,16 @@ export function Contact() {
               aria-label="LinkedIn"
             >
               <LinkedinIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={profile.hackerrank}
+              target="_blank"
+              rel="noreferrer"
+              className="vice-surface flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5"
+              aria-label="HackerRank"
+              title="HackerRank 5-Star Python Coder"
+            >
+              <HackerRankIcon className="h-5 w-5 text-emerald-400" />
             </a>
           </div>
         </div>
