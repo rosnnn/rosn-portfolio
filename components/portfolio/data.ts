@@ -57,7 +57,7 @@ export const experience = [
     role: 'Full Stack Engineer',
     company: 'Zetheta Algorithms',
     period: 'Jun 2026 – Jul 2026',
-    pendingProof: true,
+    proofUrl: '/pdf/Front End Developer Multi Step Loan Application For.pdf',
     stack: ['React 19', 'TypeScript', 'Node.js', 'Kafka', 'RabbitMQ', 'Redis', 'Terraform', 'OpenAPI', 'Cypress'],
     points: [
       'Built LendSwift, an 8-step multi-step loan application form (React 19, React Hook Form, Zod) with encrypted auto-save, e-signature capture, and a 30+ case Cypress test suite.',
