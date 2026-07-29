@@ -34,16 +34,31 @@ export function Experience() {
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  {job.proofUrl && (
-                    <a
-                      href={job.proofUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="vice-surface flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/30 transition-transform hover:-translate-y-0.5"
-                    >
-                      <ShieldCheck className="h-3.5 w-3.5" />
-                      Verified Proof
-                    </a>
+                  {job.proofs ? (
+                    job.proofs.map((proof) => (
+                      <a
+                        key={proof.url}
+                        href={proof.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="vice-surface flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/30 transition-transform hover:-translate-y-0.5"
+                      >
+                        <ShieldCheck className="h-3.5 w-3.5" />
+                        {proof.title}
+                      </a>
+                    ))
+                  ) : (
+                    job.proofUrl && (
+                      <a
+                        href={job.proofUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="vice-surface flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/30 transition-transform hover:-translate-y-0.5"
+                      >
+                        <ShieldCheck className="h-3.5 w-3.5" />
+                        Verified Proof
+                      </a>
+                    )
                   )}
                   {job.pendingProof && (
                     <span className="vice-chip rounded-full px-3 py-1 text-xs text-muted-foreground">

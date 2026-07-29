@@ -52,12 +52,32 @@ export const skillGroups = [
   },
 ]
 
-export const experience = [
+export interface ExperienceItem {
+  role: string
+  company: string
+  period: string
+  proofUrl?: string
+  pendingProof?: boolean
+  proofs?: { title: string; url: string }[]
+  stack: string[]
+  points: string[]
+}
+
+export const experience: ExperienceItem[] = [
   {
     role: 'Full Stack Engineer',
     company: 'Zetheta Algorithms',
     period: 'Jun 2026 – Jul 2026',
-    proofUrl: '/pdf/Front End Developer Multi Step Loan Application For.pdf',
+    proofs: [
+      {
+        title: 'Loan App Certificate',
+        url: '/pdf/Front End Developer Multi Step Loan Application For.pdf',
+      },
+      {
+        title: 'API Integration Certificate',
+        url: '/pdf/Custom API Integration.pdf',
+      },
+    ],
     stack: ['React 19', 'TypeScript', 'Node.js', 'Kafka', 'RabbitMQ', 'Redis', 'Terraform', 'OpenAPI', 'Cypress'],
     points: [
       'Built LendSwift, an 8-step multi-step loan application form (React 19, React Hook Form, Zod) with encrypted auto-save, e-signature capture, and a 30+ case Cypress test suite.',
@@ -187,6 +207,18 @@ export const jobSimulations = [
 ]
 
 export const certifications = [
+  {
+    name: 'Custom API Integration Certificate',
+    issuer: 'Zetheta Algorithms',
+    date: 'Jul 2026',
+    pdfUrl: '/pdf/Custom API Integration.pdf',
+  },
+  {
+    name: 'Front End Developer Certificate (Loan Application Form)',
+    issuer: 'Zetheta Algorithms',
+    date: 'Jul 2026',
+    pdfUrl: '/pdf/Front End Developer Multi Step Loan Application For.pdf',
+  },
   {
     name: 'Crash Course on Python',
     issuer: 'Google · Coursera',
