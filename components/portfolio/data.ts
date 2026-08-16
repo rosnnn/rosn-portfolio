@@ -105,6 +105,12 @@ export const experience: ExperienceItem[] = [
     company: 'Visabi Technologies Pvt. Ltd.',
     period: 'Oct 2025 – Feb 2026',
     pendingProof: true,
+    proofs: [
+      {
+        title: 'vERP 2.0 (Play Store)',
+        url: 'https://play.google.com/store/apps/details?id=verp.visabitech.com&hl=en_IN',
+      },
+    ],
     stack: ['Flutter', 'Dart', 'React', 'PostgreSQL', 'REST APIs', 'Android'],
     points: [
       'Built the sign-in/sign-up flow of the Android app in Flutter and extended development across the app\'s React-based screens; the app (vERP 2.0) is live on the Play Store.',
