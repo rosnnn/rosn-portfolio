@@ -90,7 +90,7 @@ export function LandingLoader({ onComplete }: LandingLoaderProps) {
     <div
       aria-live="polite"
       aria-label="Loading portfolio"
-      className={`pointer-events-none fixed inset-0 z-120 overflow-hidden ${closing ? 'animate-loader-exit' : ''}`}
+      className={`fixed inset-0 z-120 overflow-hidden ${closing ? 'animate-loader-exit pointer-events-none' : ''}`}
     >
       <audio ref={audioRef} preload="auto" autoPlay playsInline>
         <source src="/loading.mp3" type="audio/mpeg" />

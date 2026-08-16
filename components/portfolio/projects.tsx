@@ -33,9 +33,21 @@ export function Projects() {
                       {project.subtitle}
                     </p>
                   </div>
-                  <span className="vice-orb flex h-10 w-10 shrink-0 items-center justify-center rounded-xl vice-chip transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </span>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="vice-orb flex h-10 w-10 shrink-0 items-center justify-center rounded-xl vice-chip transition-colors hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground"
+                      aria-label={`Visit ${project.name}`}
+                    >
+                      <ArrowUpRight className="h-5 w-5" />
+                    </a>
+                  ) : (
+                    <span className="vice-orb flex h-10 w-10 shrink-0 items-center justify-center rounded-xl vice-chip transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <ArrowUpRight className="h-5 w-5" />
+                    </span>
+                  )}
                 </div>
 
                 <ul className="mt-5 space-y-2.5">
@@ -52,8 +64,20 @@ export function Projects() {
               </div>
 
               <div className="mt-6 space-y-4">
-                {project.paperUrl && (
-                  <div>
+                <div className="flex flex-wrap gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="vice-button inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-transform hover:-translate-y-0.5"
+                    >
+                      Visit Live Project
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  )}
+
+                  {project.paperUrl && (
                     <a
                       href={project.paperUrl}
                       target="_blank"
@@ -63,8 +87,8 @@ export function Projects() {
                       <ShieldCheck className="h-4 w-4 text-emerald-400" />
                       Verified JETIR Certificate (PDF)
                     </a>
-                  </div>
-                )}
+                  )}
+                </div>
 
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (

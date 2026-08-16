@@ -66,9 +66,13 @@ export interface ExperienceItem {
 export const experience: ExperienceItem[] = [
   {
     role: 'Full Stack Engineer',
-    company: 'Zetheta Algorithms',
-    period: 'Jun 2026 – Jul 2026',
+    company: 'Zetheta Algorithms Private Limited',
+    period: 'Jun 2026 – Aug 2026',
     proofs: [
+      {
+        title: 'DevOps & Cloud DR Certificate',
+        url: '/pdf/DevOps & Cloud Engineer Multi Region DR Architecture Payment Systems.pdf',
+      },
       {
         title: 'Loan App Certificate',
         url: '/pdf/Front End Developer Multi Step Loan Application For.pdf',
@@ -142,6 +146,7 @@ export const projects = [
     subtitle: 'AI Personal Finance Platform',
     badge: 'Published · JETIR2512044',
     paperUrl: '/pdf/JETIR_CERTIFICATE.pdf',
+    liveUrl: 'http://finsight-app.duckdns.org/',
     stack: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'PyTorch', 'Solana'],
     points: [
       'React + FastAPI dashboard with LSTM/GRU forecasting (92%/90% accuracy) and Solana/Web3.js fiat + crypto tracking.',
@@ -152,6 +157,7 @@ export const projects = [
     name: 'Job OS',
     subtitle: 'Multi-Agent Job Acquisition Platform',
     badge: 'Multi-agent',
+    liveUrl: 'http://jobos.duckdns.org:3000/',
     stack: ['FastAPI', 'Next.js', 'PostgreSQL', 'Celery', 'Redis', 'Playwright'],
     points: [
       '10+ agent pipeline for job aggregation, resume-to-job LLM matching, and Playwright-based ATS automation with a Next.js approval dashboard.',
@@ -208,14 +214,20 @@ export const jobSimulations = [
 
 export const certifications = [
   {
+    name: 'DevOps & Cloud Engineer Certificate (Multi Region DR Architecture Payment Systems)',
+    issuer: 'Zetheta Algorithms Private Limited',
+    date: 'Jul 2026',
+    pdfUrl: '/pdf/DevOps & Cloud Engineer Multi Region DR Architecture Payment Systems.pdf',
+  },
+  {
     name: 'Custom API Integration Certificate',
-    issuer: 'Zetheta Algorithms',
+    issuer: 'Zetheta Algorithms Private Limited',
     date: 'Jul 2026',
     pdfUrl: '/pdf/Custom API Integration.pdf',
   },
   {
     name: 'Front End Developer Certificate (Loan Application Form)',
-    issuer: 'Zetheta Algorithms',
+    issuer: 'Zetheta Algorithms Private Limited',
     date: 'Jul 2026',
     pdfUrl: '/pdf/Front End Developer Multi Step Loan Application For.pdf',
   },
