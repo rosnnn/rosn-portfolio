@@ -70,6 +70,10 @@ export const experience: ExperienceItem[] = [
     period: 'Jun 2026 – Aug 2026',
     proofs: [
       {
+        title: 'Event-Driven Notification Engine Certificate',
+        url: '/pdf/Event Driven Notification Engine.pdf',
+      },
+      {
         title: 'DevOps & Cloud DR Certificate',
         url: '/pdf/DevOps & Cloud Engineer Multi Region DR Architecture Payment Systems.pdf',
       },
@@ -152,7 +156,7 @@ export const projects = [
     subtitle: 'AI Personal Finance Platform',
     badge: 'Published · JETIR2512044',
     paperUrl: '/pdf/JETIR_CERTIFICATE.pdf',
-    liveUrl: 'http://finsight-app.duckdns.org/',
+    liveUrl: 'https://finsight.rosnnn.online/',
     stack: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'PyTorch', 'Solana'],
     points: [
       'React + FastAPI dashboard with LSTM/GRU forecasting (92%/90% accuracy) and Solana/Web3.js fiat + crypto tracking.',
@@ -163,7 +167,7 @@ export const projects = [
     name: 'Job OS',
     subtitle: 'Multi-Agent Job Acquisition Platform',
     badge: 'Multi-agent',
-    liveUrl: 'http://jobos.duckdns.org:3000/',
+    liveUrl: 'https://jobos.rosnnn.online/',
     stack: ['FastAPI', 'Next.js', 'PostgreSQL', 'Celery', 'Redis', 'Playwright'],
     points: [
       '10+ agent pipeline for job aggregation, resume-to-job LLM matching, and Playwright-based ATS automation with a Next.js approval dashboard.',
@@ -219,6 +223,12 @@ export const jobSimulations = [
 ]
 
 export const certifications = [
+  {
+    name: 'Event-Driven Notification Engine Certificate',
+    issuer: 'Zetheta Algorithms Private Limited',
+    date: 'Jul 2026',
+    pdfUrl: '/pdf/Event Driven Notification Engine.pdf',
+  },
   {
     name: 'DevOps & Cloud Engineer Certificate (Multi Region DR Architecture Payment Systems)',
     issuer: 'Zetheta Algorithms Private Limited',
