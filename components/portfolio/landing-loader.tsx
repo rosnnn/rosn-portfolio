@@ -1,87 +1,44 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-
-const loaderTitles = [
-  ['Loading', 'Now'],
-  ['Please', 'Wait'],
-  ['Almost', 'There'],
-]
+import { useEffect, useState } from 'react'
+import { RobotAvatar } from './robot-avatar'
 
 interface LandingLoaderProps {
   onComplete?: () => void
 }
 
 export function LandingLoader({ onComplete }: LandingLoaderProps) {
+  const [progress, setProgress] = useState(0)
   const [visible, setVisible] = useState(true)
   const [closing, setClosing] = useState(false)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    const audio = audioRef.current
-    if (audio) {
-      audio.currentTime = 0
-      audio.volume = 0.65
-      audio.muted = false
+    const startTime = performance.now()
+    const duration = 1000 // 1.0s fast loading
 
-      const startAudio = async () => {
-        try {
-          await audio.play()
-        } catch {
-          // Autoplay blocked fallback: try muted then unmute
-          try {
-            audio.muted = true
-            await audio.play()
-            audio.muted = false
-          } catch {
-            // Ignored if completely restricted
-          }
+    const update = (now: number) => {
+      const elapsed = now - startTime
+      const p = Math.min(Math.floor((elapsed / duration) * 100), 100)
+      setProgress(p)
+
+      if (p < 100) {
+        requestAnimationFrame(update)
+      } else {
+        const exitTimer = window.setTimeout(() => setClosing(true), 150)
+        const hideTimer = window.setTimeout(() => {
+          setVisible(false)
+          onComplete?.()
+        }, 450)
+
+        return () => {
+          clearTimeout(exitTimer)
+          clearTimeout(hideTimer)
         }
       }
-
-      startAudio()
-
-      const unlockOnUserGesture = () => {
-        if (audio && audio.paused) {
-          audio.muted = false
-          audio.play().catch(() => {})
-        }
-      }
-
-      window.addEventListener('pointerdown', unlockOnUserGesture, { once: true })
-      window.addEventListener('click', unlockOnUserGesture, { once: true })
-      window.addEventListener('keydown', unlockOnUserGesture, { once: true })
-
-      return () => {
-        window.removeEventListener('pointerdown', unlockOnUserGesture)
-        window.removeEventListener('click', unlockOnUserGesture)
-        window.removeEventListener('keydown', unlockOnUserGesture)
-      }
     }
-  }, [])
 
-  useEffect(() => {
-    // 6.0s: start loader exit animation
-    const closeTimer = window.setTimeout(() => setClosing(true), 6000)
-
-    // 6.5s: stop audio, hide loader, and notify parent that loading completed
-    const hideTimer = window.setTimeout(() => {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current.currentTime = 0
-      }
-      setVisible(false)
-      onComplete?.()
-    }, 6500)
-
-    return () => {
-      window.clearTimeout(closeTimer)
-      window.clearTimeout(hideTimer)
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current.currentTime = 0
-      }
-    }
+    const frameId = requestAnimationFrame(update)
+    return () => cancelAnimationFrame(frameId)
   }, [onComplete])
 
   if (!visible) return null
@@ -89,54 +46,34 @@ export function LandingLoader({ onComplete }: LandingLoaderProps) {
   return (
     <div
       aria-live="polite"
-      aria-label="Loading portfolio"
-      className={`fixed inset-0 z-120 overflow-hidden ${closing ? 'animate-loader-exit pointer-events-none' : ''}`}
+      aria-label="Loading Roshan Kumar Jha's Portfolio"
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black text-[#f4f4f5] transition-all duration-500 ${
+        closing ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+      }`}
     >
-      <audio ref={audioRef} preload="auto" autoPlay playsInline>
-        <source src="/loading.mp3" type="audio/mpeg" />
-        <source src="/loading.mpeg" type="audio/mpeg" />
-      </audio>
+      <div className="relative flex flex-col items-center text-center font-mono max-w-sm w-full px-6 bg-transparent">
+        {/* Animated Robot Avatar without border */}
+        <div className="relative mb-5 flex items-center justify-center">
+          <RobotAvatar size={110} glow={true} />
+        </div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(165deg,#12061f_0%,#170925_42%,#090712_100%)]" />
+        <h2 className="font-bebas text-3xl uppercase tracking-wider text-white">
+          Roshan Kumar Jha
+        </h2>
+        <p className="text-xs text-white/50 font-mono mt-1 mb-6">
+          Full-Stack Software Engineer
+        </p>
 
-      <div
-        className="absolute inset-0 opacity-[0.22]"
-        style={{
-          background:
-            'radial-gradient(85% 46% at 50% 110%, oklch(0.8 0.24 18 / 0.65) 0%, oklch(0.73 0.25 338 / 0.44) 32%, transparent 72%), radial-gradient(95% 70% at 50% -10%, oklch(0.71 0.2 300 / 0.28) 0%, transparent 62%)',
-        }}
-      />
+        <div className="w-full flex items-center justify-between text-xs text-white/40 mb-2 font-mono">
+          <span>PORTFOLIO READY</span>
+          <span className="text-[#e5b869] font-bold">{progress}%</span>
+        </div>
 
-      <div
-        className="absolute inset-x-0 bottom-0 h-[40vh] opacity-[0.14]"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, oklch(0.85 0.2 320 / 0.32) 1px, transparent 1px), linear-gradient(to top, oklch(0.85 0.2 320 / 0.32) 1px, transparent 1px)',
-          backgroundSize: '58px 58px',
-          maskImage: 'linear-gradient(to top, black 0%, transparent 88%)',
-          WebkitMaskImage: 'linear-gradient(to top, black 0%, transparent 88%)',
-        }}
-      />
-
-      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(to right, transparent 0%, oklch(0.96 0.015 90 / 0.1) 50%, transparent 100%)', backgroundSize: '220% 100%', animation: 'loader-sweep 1.8s linear infinite' }} />
-
-      <div className="relative flex h-full w-full items-center justify-center px-6">
-        <div className="text-center">
-          <div className="loader-headline-window">
-            <div className="loader-headline-track">
-              {loaderTitles.map(([first, second], index) => (
-                <h2 key={`${first}-${second}`} className={`loader-headline loader-variant-${index + 1}`}>
-                  {first}
-                  <br />
-                  {second}
-                </h2>
-              ))}
-            </div>
-          </div>
-
-          <div className="mx-auto mt-7 h-0.75 w-44 overflow-hidden rounded-full bg-foreground/10">
-            <span className="block h-full w-1/2 animate-loader-bar rounded-full bg-primary" />
-          </div>
+        <div className="w-full h-1 bg-white/10 overflow-hidden rounded-full">
+          <div
+            className="h-full bg-[#e5b869] transition-all duration-75"
+            style={{ width: `${progress}%` }}
+          />
         </div>
       </div>
     </div>

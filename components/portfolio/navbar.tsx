@@ -1,109 +1,154 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { FileText, Menu, X } from 'lucide-react'
-import { navLinks, profile } from './data'
-import { cn } from '@/lib/utils'
+import { useState, useEffect } from 'react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { profile } from './data'
+import { RobotAvatar } from './robot-avatar'
+
+const navLinks = [
+  { name: 'Capabilities', href: '#about' },
+  { name: 'Toolkit', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Simulations', href: '#virtual-experience' },
+  { name: 'Work', href: '#projects' },
+  { name: 'Proofs', href: '#credentials' },
+]
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-5 pt-4 md:px-8">
+    <header
+      className={`fixed z-50 transition-all duration-500 ${
+        isScrolled ? 'top-4 left-4 right-4' : 'top-0 left-0 right-0'
+      }`}
+    >
       <nav
-        className={cn(
-          'flex w-full max-w-7xl items-center justify-between rounded-2xl px-4 py-3 transition-all duration-500 md:px-6',
-          scrolled ? 'vice-surface-strong' : 'vice-surface',
-        )}
+        className={`mx-auto transition-all duration-500 ${
+          isScrolled || isMobileMenuOpen
+            ? 'bg-[#06060a]/85 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl max-w-[1200px]'
+            : 'bg-transparent max-w-[1400px]'
+        }`}
       >
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault()
-            window.location.reload()
-          }}
-          title="Refresh page"
-          className="group flex items-center gap-2 font-serif text-lg font-semibold tracking-tight cursor-pointer"
+        <div
+          className={`flex items-center justify-between transition-all duration-500 px-4 sm:px-6 lg:px-8 ${
+            isScrolled ? 'h-14' : 'h-16 sm:h-20'
+          }`}
         >
-          <span className="brand-mark vice-orb relative flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-primary-foreground transition-transform duration-300 group-hover:rotate-12 group-hover:scale-105 active:scale-95">
-            <span>R</span>
-          </span>
-        </a>
+          {/* Animated Robot Avatar */}
+          <a
+            href="#top"
+            className="flex items-center group transition-transform duration-300 hover:scale-110 active:scale-95"
+            aria-label="Roshan Kumar Jha - Back to top"
+          >
+            <RobotAvatar size={isScrolled ? 46 : 56} />
+          </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+            {navLinks.map((link) => (
               <a
+                key={link.name}
                 href={link.href}
-                className="nav-link-glass rounded-full px-3.5 py-1.5 text-sm text-muted-foreground"
+                className="text-sm text-white/70 hover:text-white transition-colors duration-300 relative group font-sans"
               >
-                {link.label}
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
 
-        <div className="flex items-center gap-2">
-          <a
-            href={profile.resume}
-            target="_blank"
-            rel="noreferrer"
-            className="vice-surface hidden items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium text-foreground transition-transform hover:-translate-y-0.5 sm:flex"
-          >
-            <FileText className="h-3.5 w-3.5 text-secondary" />
-            CV
-          </a>
-          <a
-            href="#contact"
-            className="vice-button hidden rounded-full px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5 sm:inline-block"
-          >
-            Let&apos;s talk
-          </a>
+          {/* Desktop CTAs */}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-white/70 hover:text-white transition-all flex items-center gap-1"
+            >
+              <span>CV PDF</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+            <a
+              href="#contact"
+              className={`rounded-full transition-all duration-500 flex items-center justify-center font-semibold ${
+                isScrolled
+                  ? 'bg-white hover:bg-white/90 text-black px-4 h-8 text-xs'
+                  : 'bg-white hover:bg-white/90 text-black px-5 h-9 text-xs'
+              }`}
+            >
+              Get in touch
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-white touch-manipulation focus:outline-none"
             aria-label="Toggle menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="vice-surface flex h-9 w-9 items-center justify-center rounded-xl text-foreground md:hidden"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </nav>
 
-      {open && (
-        <>
-          <button
-            type="button"
-            aria-label="Close menu overlay"
-            onClick={() => setOpen(false)}
-            className="fixed inset-0 top-0 z-40 bg-black/40 backdrop-blur-[2px] md:hidden"
-          />
-          <div className="vice-surface-strong absolute left-4 right-4 top-20 z-50 rounded-2xl border border-white/15 bg-[#120a20d9] p-3 backdrop-blur-2xl md:hidden">
-            <ul className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-xl bg-black/20 px-4 py-3 text-sm text-foreground/90 transition-colors hover:bg-white/12 hover:text-foreground"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`md:hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 transition-all duration-500 ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        style={{ top: 0 }}
+      >
+        <div className="flex flex-col h-full px-6 sm:px-8 pt-24 pb-8">
+          <div className="flex-1 flex flex-col justify-center gap-5 sm:gap-6">
+            {navLinks.map((link, i) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-4xl font-display text-white hover:text-white/60 transition-all duration-500 ${
+                  isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: isMobileMenuOpen ? `${i * 60}ms` : '0ms' }}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
-        </>
-      )}
+
+          <div
+            className={`flex gap-4 pt-8 border-t border-white/10 transition-all duration-500 ${
+              isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: isMobileMenuOpen ? '300ms' : '0ms' }}
+          >
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 flex items-center justify-center rounded-full border border-white/20 h-12 text-sm text-white"
+            >
+              CV PDF
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex-1 flex items-center justify-center bg-white text-black rounded-full h-12 text-sm font-semibold"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
   )
 }

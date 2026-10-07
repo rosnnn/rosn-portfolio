@@ -1,33 +1,35 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Outfit, Bebas_Neue, JetBrains_Mono, Inter_Tight } from 'next/font/google'
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono, Bebas_Neue } from 'next/font/google'
 import './globals.css'
 
-const outfit = Outfit({
+const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-outfit',
+  variable: '--font-sans',
 })
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
+
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   weight: ['400'],
-  variable: '--font-display',
-})
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-})
-const interTight = Inter_Tight({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-  variable: '--font-inter-tight',
+  variable: '--font-bebas',
 })
 
 export const metadata: Metadata = {
-  title: 'Roshan Kumar Jha — Full-Stack Software Engineer',
+  title: 'ROSHAN KUMAR JHA — Full-Stack Software Engineer & AI Systems',
   description:
-    'Full-stack software engineer building production web, mobile, and AI/ML systems with React, Flutter, Node.js, FastAPI and Python. Published ML researcher.',
-  generator: 'v0.app',
+    'Full-stack software engineer building production web, mobile, and AI/ML systems with React, Flutter, Node.js, FastAPI, and Python. Published ML researcher.',
   icons: {
     icon: [
       {
@@ -35,14 +37,14 @@ export const metadata: Metadata = {
         type: 'image/jpeg',
       },
     ],
-    shortcut: '/favicon.jpg',
-    apple: '/favicon.jpg',
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#221a33',
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -53,9 +55,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${bebasNeue.variable} ${jetbrainsMono.variable} ${interTight.variable} bg-background`}
+      className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${bebasNeue.variable} dark bg-black`}
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-black text-[#f4f4f5] selection:bg-white selection:text-black overflow-x-clip [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -1,67 +1,97 @@
-# 🌴 **ROSHAN KUMAR JHA — GTA VI INSPIRED PORTFOLIO** 🌴
+# Modern Interactive Portfolio
 
-> ### **💥 THIS IS A FULLY CUSTOM, NEXT-GEN PORTFOLIO DESIGN INSPIRED BY THE LOOK, FEEL, AND NEON VIBES OF GRAND THEFT AUTO VI (GTA 6) & VICE CITY! 💥**
-
----
-
-## 🌴 **ABOUT THE DESIGN & LOOK/FEEL**
-
-**This website is heavily inspired by the iconic aesthetic, neon gradients, atmospheric lighting, and high-octane UI design of GTA VI and Vice City.**
-
-### 🎨 **Visual & Experience Highlights**
-- 🌴 **Vice City & Leonida Aesthetics**: Vibrant synthwave gradients, tropical dusk backdrop lighting, and glassmorphic surfaces.
-- 🎵 **GTA 6 Style Audio Loader**: An interactive landing loading screen featuring GTA-style audio playback and dynamic typography cycling ("LOADING NOW" -> "PLEASE WAIT" -> "ALMOST THERE").
-- 📹 **Live Video & Media Integration**: Dynamic video showcase frame with conic aura glows and live status indicators.
-- ⚡ **Futuristic & Responsive Layout**: Built with Next.js 16 (Turbopack), Tailwind CSS, Lucide icons, smooth scroll navigation, and custom glassmorphism.
-- 💼 **Full-Stack Engineer Showcase**: Highlighting projects, skills, experience, published ML research papers, and contact info.
+A high-performance, dark-mode software engineering portfolio web application built with Next.js (App Router), React, TypeScript, and modern UI animation technologies. Designed with responsive layouts, fluid inertial scrolling, and interactive engineering showcase modules.
 
 ---
 
-## 🛠️ **TECH STACK**
+## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router & Turbopack)
+- **UI Library**: [React 19](https://react.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS Design Tokens
-- **Icons**: [Lucide React](https://lucide.dev/) & Custom Brand SVG Icons
-- **Deployment**: [Vercel](https://vercel.com/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & Vanilla CSS Design Tokens
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animation & Graphics**:
+  - [Lenis](https://lenis.darkroom.engineering/) — Smooth inertial scrolling
+  - [Lottie React](https://github.com/Gamote/lottie-react) — Interactive vector animations
+  - Custom Canvas ASCII scene rendering
+- **Component Primitives**: Base UI (`@base-ui/react`), Class Variance Authority (`cva`), `clsx`, `tailwind-merge`
+- **Analytics**: Vercel Analytics
 
 ---
 
-## 🚀 **GETTING STARTED LOCALLY**
+## ✨ Key Functionalities & Features
 
-### 1. **Clone the Repository**
-```bash
-git clone https://github.com/rosnnn/my_portfolio.git
-cd my_portfolio
-```
+1. **Interactive Entry Loader**:
+   - Audio-reactive loading transition with audio playback toggle and staged loading sequence before page reveal.
 
-### 2. **Install Dependencies**
-```bash
-npm install
-```
+2. **Hero Presentation**:
+   - Clean typographic layout featuring live status badges, dynamic call-to-actions, and quick navigational links.
 
-### 3. **Run the Development Server**
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
+3. **Smooth Inertial Scrolling**:
+   - Global Lenis integration for momentum-based scrolling across desktop and mobile devices.
 
-### 4. **Build for Production**
+4. **Dynamic ASCII Canvas Scene**:
+   - Real-time ASCII aesthetic visual component rendered directly on HTML5 Canvas.
+
+5. **Engineering Capabilities & Philosophy**:
+   - Modular breakdown of core technical specializations across full-stack architecture, distributed systems, and AI engineering.
+
+6. **Interactive Skills Matrix**:
+   - Categorized technical stack indicators (Languages, Frameworks, Cloud/DevOps, Databases, Tools) with proficiency tags.
+
+7. **Experience & Career Timeline**:
+   - Chronological engineering roles detailing system impact, responsibilities, and delivered architectural improvements.
+
+8. **Quantitative Metrics Showcase**:
+   - Key engineering metrics (precision benchmarks, system throughput, and operational milestones).
+
+9. **Enterprise Simulation Tracks**:
+   - Dedicated modules highlighting completed enterprise-grade simulations and real-world system architecture projects.
+
+10. **Curated Projects Showcase**:
+    - Project cards with live demo links, repository links, architectural highlights, and technology tags.
+
+11. **Verified Proofs & Credentials**:
+    - Repository of certifications, academic qualifications, and research publications with inline preview capabilities.
+
+12. **Contact & Socials Hub**:
+    - Reachability section with direct messaging endpoints and platform links.
+
+13. **Responsive Navigation**:
+    - Glassmorphic floating header with active scroll-spy section tracking and responsive mobile drawer navigation.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.18+ or 20+
+- npm, pnpm, or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rosnnn/rosn-portfolio.git
+   cd rosn-portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+
 ```bash
 npm run build
 npm run start
 ```
-
----
-
-## 👤 **AUTHOR**
-
-**Roshan Kumar Jha**  
-*Full-Stack Software Engineer & AI/ML Specialist*  
-📍 Bengaluru, India  
-📧 [connect.rosn@gmail.com](mailto:connect.rosn@gmail.com)  
-🔗 [GitHub](https://github.com/rosnnn) | [LinkedIn](https://linkedin.com/in/rosnnn)
-
----
-
-> *Created with care. GTA VI & Vice City Inspired.*

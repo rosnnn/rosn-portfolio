@@ -1,104 +1,126 @@
 import { profile, navLinks } from './data'
 import { GithubIcon, LinkedinIcon, HackerRankIcon } from './brand-icons'
-import { Mail } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden">
-      {/* top row: links + meta */}
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
-        <div className="glass flex flex-col gap-8 rounded-3xl p-8 md:flex-row md:items-center md:justify-between md:p-10">
-          <div className="max-w-sm">
-            <p className="font-serif text-2xl text-foreground">
-              Let&apos;s build something worth shipping.
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Open to full-time roles, internships, and ambitious collaborations.
-            </p>
-            <a
-              href={`mailto:${profile.email}`}
-              className="clay mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
-            >
-              <Mail className="h-4 w-4" />
-              {profile.email}
-            </a>
-          </div>
+    <footer className="relative bg-black text-white pt-16">
+      {/* Footer Content */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="py-12 sm:py-16 border-t border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10 md:gap-8">
+            {/* Brand Column */}
+            <div className="sm:col-span-2">
+              <a href="#top" className="inline-flex items-center gap-2 mb-4 group">
+                <span className="text-2xl font-bebas tracking-wider text-white">ROSHAN KUMAR JHA</span>
+              </a>
 
-          <div className="flex flex-col gap-6 sm:flex-row sm:gap-12">
-            <nav className="flex flex-col gap-2" aria-label="Footer">
-              {navLinks.map((l) => (
+              <p className="text-white/50 leading-relaxed mb-6 max-w-xs text-sm font-sans">
+                Full-stack software engineer & AI/ML systems researcher building dependable production platforms.
+              </p>
+
+              {/* Social Links */}
+              <div className="flex flex-wrap gap-4">
                 <a
-                  key={l.href}
-                  href={l.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono text-white/50 hover:text-white transition-colors flex items-center gap-1"
                 >
-                  {l.label}
+                  <span>GitHub</span>
+                  <ArrowUpRight className="w-3 h-3" />
                 </a>
-              ))}
-            </nav>
-            <div className="flex gap-3">
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                className="glass flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5"
-              >
-                <GithubIcon className="h-5 w-5" />
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="glass flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5"
-              >
-                <LinkedinIcon className="h-5 w-5" />
-              </a>
-              <a
-                href={profile.hackerrank}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="HackerRank"
-                title="HackerRank 5-Star Python Coder"
-                className="glass flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 text-emerald-400"
-              >
-                <HackerRankIcon className="h-5 w-5" />
-              </a>
-              <a
-                href={`mailto:${profile.email}`}
-                aria-label="Email"
-                className="glass flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono text-white/50 hover:text-white transition-colors flex items-center gap-1"
+                >
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+                <a
+                  href={profile.hackerrank}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono text-emerald-400/70 hover:text-emerald-300 transition-colors flex items-center gap-1"
+                >
+                  <span>HackerRank 5★</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Navigation links */}
+            <div className="sm:col-span-2">
+              <h3 className="text-xs font-mono uppercase tracking-wider text-white/40 mb-4">Navigation</h3>
+              <ul className="space-y-2.5">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/70 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Connect links */}
+            <div className="sm:col-span-2">
+              <h3 className="text-xs font-mono uppercase tracking-wider text-white/40 mb-4">Direct Communication</h3>
+              <div className="space-y-3 font-mono text-xs text-white/60">
+                <p className="break-all">
+                  EMAIL:{' '}
+                  <a href={`mailto:${profile.email}`} className="text-white hover:text-[#e5b869] transition-colors">
+                    {profile.email}
+                  </a>
+                </p>
+                <p>
+                  PHONE:{' '}
+                  <a href={`tel:${profile.phone}`} className="text-white hover:text-[#e5b869] transition-colors">
+                    {profile.phone}
+                  </a>
+                </p>
+                <p>LOCATION: BENGALURU, INDIA</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-2 py-8 text-xs text-muted-foreground sm:flex-row">
-          <p>
-            &copy; {new Date().getFullYear()} {profile.name}. Inspired from GTA.
-          </p>
-          <p>{profile.location}</p>
+        {/* Bottom Bar */}
+        <div className="py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-white/40 text-center sm:text-left">
+          <p>&copy; {new Date().getFullYear()} Roshan Kumar Jha. All rights reserved.</p>
+          <div className="flex items-center gap-2 text-white/60">
+            <span className="w-2 h-2 rounded-full bg-[#e5b869]" />
+            <span>AVAILABLE FOR FULL-TIME SWE ROLES</span>
+          </div>
         </div>
       </div>
 
-      {/* giant clipped, gradient, bottom-faded word */}
-      <div className="relative flex select-none justify-center overflow-hidden px-6 pb-2 md:px-10">
-        <span
-          aria-hidden="true"
-          className="text-gradient translate-y-[14%] whitespace-nowrap pr-[0.12em] font-serif font-normal italic leading-[0.92] tracking-tight"
-          style={{
-            fontSize: 'clamp(5rem, 24vw, 22rem)',
-            WebkitMaskImage:
-              'linear-gradient(to bottom, oklch(0 0 0) 60%, transparent 97%)',
-            maskImage:
-              'linear-gradient(to bottom, oklch(0 0 0) 60%, transparent 97%)',
-          }}
+      {/* Giant Signature "Let's Talk" in solid golden color, italic with bottom fade */}
+      <div className="relative flex select-none justify-center items-center overflow-visible px-4 sm:px-8 pb-2 pt-6 sm:pt-10 border-t border-white/5">
+        <a
+          href="#contact"
+          className="inline-block text-center hover:opacity-90 transition-opacity"
         >
-          {"let's talk"}
-        </span>
+          <span
+            className="whitespace-nowrap font-display font-normal italic tracking-tight text-[#e5b869] block pr-[0.16em]"
+            style={{
+              fontSize: 'clamp(2.75rem, 15vw, 15rem)',
+              lineHeight: 0.9,
+              color: '#e5b869',
+              WebkitMaskImage:
+                'linear-gradient(to bottom, black 50%, transparent 96%)',
+              maskImage:
+                'linear-gradient(to bottom, black 50%, transparent 96%)',
+            }}
+          >
+            {"Let's Talk"}
+          </span>
+        </a>
       </div>
     </footer>
   )

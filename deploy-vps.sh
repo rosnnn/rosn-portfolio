@@ -35,7 +35,7 @@ if [ -d "$DEPLOY_DIR/.git" ]; then
 else
     echo "Cloning repository from GitHub..."
     rm -rf "$DEPLOY_DIR"
-    git clone https://github.com/rosnnn/my_portfolio.git "$DEPLOY_DIR"
+    git clone https://github.com/rosnnn/rosn-portfolio.git "$DEPLOY_DIR"
     cd "$DEPLOY_DIR"
 fi
 
